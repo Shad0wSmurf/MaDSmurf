@@ -149,8 +149,8 @@ fi
 # we trick t95s2 into downloading but not using the file with this
 if [[ "$madmodel" ]] && ! ls -lL /sbin/.magisk/img | grep -q smali && download_smali && [[ "$madrom" ]] ;then
    mkdir -p /cache/recovery/
-   echo '--update_package=/sdcard/smali.zip' > /cache/recovery/command
-   echo '--wipe_cache' >> /cache/recovery/command
+  # echo '--update_package=/sdcard/smali.zip' > /cache/recovery/command
+   #echo '--wipe_cache' >> /cache/recovery/command
    reboot recovery
 fi
 
