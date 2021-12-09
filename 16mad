@@ -29,7 +29,7 @@ done
 
 if [ ! -f /system/priv-app/RemoteGpsController.apk ]; then
    until [[ $(pm list packages com.mad.pogodroid) ]]; do
-     download https://raw.githubusercontent.com/Map-A-Droid/MAD-ATV/master/16mad /etc/init.d/16mad && chmod +x /etc/init.d/16mad
+     download https://raw.githubusercontent.com/Shad0wSmurf/MaDSmurf/main/16mad /etc/init.d/16mad && chmod +x /etc/init.d/16mad
      download "https://www.maddev.de/apk/PogoDroid.apk" "/sdcard/pogodroid.apk"
      /system/bin/chmod 644 /sdcard/pogodroid.apk
      /system/bin/pm install /sdcard/pogodroid.apk
@@ -87,12 +87,12 @@ fi
 install_magisk(){
 if [[ "$madrom" ]] ;then
     download "$murl" /sdcard/magisk.zip
-    mkdir -p /cache/recovery
-    touch /cache/recovery/command
-    echo '--update_package=/sdcard/magisk.zip' >> /cache/recovery/command
+    #mkdir -p /cache/recovery
+    #touch /cache/recovery/command
+   # echo '--update_package=/sdcard/magisk.zip' >> /cache/recovery/command
     download_smali
-    echo '--update_package=/sdcard/smali.zip' >> /cache/recovery/command
-    echo '--wipe_cache' >> /cache/recovery/command
+    #echo '--update_package=/sdcard/smali.zip' >> /cache/recovery/command
+    #echo '--wipe_cache' >> /cache/recovery/command
     reboot recovery
 elif [[ "$madmodel" == "t95s2" ]]; then
    download "$murl" /sdcard/magisk.zip
@@ -178,7 +178,7 @@ if ! dumpsys package de.grennith.rgc.remotegpscontroller|grep ACCESS_FINE_LOCATI
  pm grant de.grennith.rgc.remotegpscontroller android.permission.WRITE_EXTERNAL_STORAGE
 fi
 echo "$madver" > /sdcard/madversion
- ! grep -q "version $uver" /system/bin/update_mad.sh && download https://raw.githubusercontent.com/Map-A-Droid/MAD-ATV/master/update_mad.sh /system/bin/update_mad.sh && chmod +x /system/bin/update_mad.sh
+ ! grep -q "version $uver" /system/bin/update_mad.sh && download https://raw.githubusercontent.com/Shad0wSmurf/MaDSmurf/main/update_mad.sh /system/bin/update_mad.sh && chmod +x /system/bin/update_mad.sh
 ! grep -q "version $pver" /system/bin/pingreboot.sh && download https://raw.githubusercontent.com/Map-A-Droid/MAD-ATV/master/pingreboot.sh /system/bin/pingreboot.sh && chmod +x /system/bin/pingreboot.sh
 ! grep -q "version $nver" /system/bin/nfs_install.sh && download https://raw.githubusercontent.com/Map-A-Droid/MAD-ATV/master/nfs_install.sh /system/bin/nfs_install.sh && chmod +x /system/bin/nfs_install.sh
 # Fix for a95xf1 eth0 mac address issue. Also a tool for people who wish to control their MAC
