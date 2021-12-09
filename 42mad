@@ -148,9 +148,9 @@ input tap 881 277
 install_magisk() {
 download "$url_magisk" /sdcard/magisk.zip
 mkdir -p /cache/recovery
-touch /cache/recovery/command
-echo '--update_package=/sdcard/magisk.zip' >> /cache/recovery/command
-cachereboot=1
+#touch /cache/recovery/command
+#echo '--update_package=/sdcard/magisk.zip' >> /cache/recovery/command
+cachereboot=0
 }
 
 check_magisk(){
