@@ -10,7 +10,7 @@ nver="1.2"
 madver="1.3.2"
 #magisk version / url
 mver="22.1"
-murl="https://github.com/Shad0wSmurf/MaDSmurf/blob/main/Magisk-v22.1.zip?raw=true"
+murl="https://github.com/Shad0wSmurf/MaDSmurf/raw/alpha/Magisk-v22.1.zip"
 
 
 /system/bin/sh /system/bin/pingreboot.sh &
